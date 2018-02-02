@@ -1,0 +1,9 @@
+<%#
+kind: finish
+name: RancherOS default finish
+oses:
+- RancherOS
+-%>
+#!/bin/bash
+/usr/bin/wget --quiet --output-document=/dev/null --no-check-certificate <%= foreman_url('built') %>
+exit 0

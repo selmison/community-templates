@@ -1,0 +1,9 @@
+<%#
+kind: PXELinux
+name: RancherOS PXELinux
+-%>
+DEFAULT rancheros
+
+LABEL rancheros
+  KERNEL <%= @kernel -%> rancher.password=<%= root_pass %> rancher.state.dev=LABEL=RANCHER_STATE rancher.state.autoformat=[/dev/xvda] rancher.cloud_init.datasources=['url:<%= foreman_url('provision')-%>']
+  APPEND initrd=<%= @initrd -%>
